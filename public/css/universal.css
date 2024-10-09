@@ -1,0 +1,14 @@
+.jumbotron {
+    background-image: url('https://via.placeholder.com/1920x400'); /* Replace with your own image URL */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .jumbotron h1 {
+    font-size: 4rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }

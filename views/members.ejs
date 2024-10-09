@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robotics Club - Members</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/universal.css">
+</head>
+<body>
+
+  <%- include('partials/header') %>
+
+  <div class="jumbotron">
+    <h1 class="display-4">Our Members</h1>
+  </div>
+
+  <div class="container mt-5">
+    <h1>Meet Our Members</h1>
+
+    <% if (members && Object.keys(members).length > 0) { %>
+      <ul class="list-group">
+        <% for (let key in members) { %>
+          <li class="list-group-item">
+            <strong>Name:</strong> <%= members[key].name %> <br>
+            <strong>Email:</strong> <%= members[key].email %> <br>
+            <strong>Role:</strong> <%= members[key].role %>
+          </li>
+        <% } %>
+      </ul>
+    <% } else { %>
+      <p>No members available at the moment. Please check back later!</p>
+    <% } %>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

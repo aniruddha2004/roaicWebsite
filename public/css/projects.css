@@ -1,0 +1,40 @@
+  /* Ensure all cards are of equal height */
+  .card {
+    height: 100%;
+  }
+  
+  /* Ensure the card image is responsive and doesn't overflow */
+  .card-img-top {
+    height: 400px;
+    object-fit: cover;
+  }
+  
+  /* Custom styling for completed or ongoing projects */
+  .completed-badge {
+    background-color: #28a745;
+    color: white;
+    padding: 0.25em 0.75em;
+    border-radius: 5px;
+  }
+  .ongoing-badge {
+    background-color: #ffc107;
+    color: black;
+    padding: 0.25em 0.75em;
+    border-radius: 5px;
+  }
+  
+  /* Spacing and container width adjustments */
+  .wider-container {
+    max-width: 95%;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ensures cards are spaced out evenly */
+  }
+  
+  .card {
+    margin-bottom: 20px; /* Adds some space at the bottom of the cards */
+  }
+  

@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Robotics Club</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/" <% if(currentPage === 'home') { %> class="disabled" <% } %> >Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about" <% if(currentPage === 'about') { %> class="disabled" <% } %> >About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects" <% if(currentPage === 'projects') { %> class="disabled" <% } %> >Projects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/members" <% if(currentPage === 'members') { %> class="disabled" <% } %> >Members</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact" <% if(currentPage === 'contact') { %> class="disabled" <% } %> >Contact</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <% if (user) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/logout"><%= user.email %> (Logout)</a>
+        </li>
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/login">Login</a>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+</nav>

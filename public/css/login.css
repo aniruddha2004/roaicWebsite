@@ -1,0 +1,117 @@
+/* General styling */
+body {
+    background-color: #f4f6f9;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    max-width: 500px;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    position: relative;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-top: 70px; /* Adds space between the GIF and heading */
+    margin-bottom: 2rem;
+    font-weight: 700;
+  }
+  
+  .alert {
+    border-radius: 8px;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  input[type="email"], input[type="password"] {
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: all 0.3s;
+    width: 100%;
+  }
+  
+  input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #5a9bf7;
+    box-shadow: 0px 0px 5px rgba(90, 155, 247, 0.5);
+    outline: none;
+  }
+  
+  button[type="submit"] {
+    background-color: #5a9bf7;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #3a82f7;
+  }
+  
+  button[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(90, 155, 247, 0.5);
+  }
+  
+  .alert-danger {
+    background-color: #ffdddd;
+    border-color: #ff6f6f;
+    color: #d9534f;
+    font-size: 1rem;
+  }
+  
+  /* Extra design for aesthetics */
+  .container:before {
+    content: "";
+    position: absolute;
+    top: -75px; /* Adjusted to place GIF higher */
+    left: calc(50% - 75px);
+    width: 150px;
+    height: 150px;
+    background-image: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGFjNmd5ZnVmeDdoNXFjbWx2MThrYjk0OG02NWI3ZGh3cjhwMms1MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sFTWiBKYYWKVa/giphy.webp');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      margin-top: 3rem;
+      padding: 1rem;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    button[type="submit"] {
+      font-size: 1.1rem;
+    }
+  }
+  
