@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Robotics Club - Home</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/home.css"> <!-- External CSS link -->
 </head>
 <body>
 
@@ -38,13 +39,164 @@
     </a>
   </div>
 
-  <!-- Content -->
-  <div class="container mt-5">
-    <h1>Welcome to the Robotics Club!</h1>
-    <p>This is the homepage of our university's Robotics Club. Explore our projects, meet our members, and feel free to contact us!</p>
-  </div>
+  <!-- Introduction Section -->
+  <section class="intro-section text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Welcome to the Robotics Club</h1>
+      <p class="lead">Join us in exploring the fascinating world of robotics and AI! Our club is a vibrant community of passionate individuals working together to create innovative projects and participate in exciting competitions.</p>
+      
+      <!-- Quote and GIF -->
+      <blockquote class="blockquote">
+        <p class="mb-0">"The future belongs to those who learn more skills and combine them in creative ways."</p>
+        <footer class="blockquote-footer">Robert Greene</footer>
+      </blockquote>
+      
+      <!-- Embedding GIF related to robotics -->
+      <div class="embed-responsive embed-responsive-16by9 mb-4">
+        <iframe class="embed-responsive-item" src="https://giphy.com/embed/l0HlTy9x8FZo0XO1i" allowfullscreen></iframe>
+      </div>
+      
+      <a href="/projects" class="btn btn-primary">Explore Our Projects</a>
+    </div>
+  </section>
+
+  <!-- Our Mission Section -->
+  <section class="mission-section py-5 bg-dark text-center">
+    <div class="container">
+      <h2>Our Mission</h2>
+      <p>To inspire and equip students with the knowledge and skills required to innovate and excel in robotics and AI through hands-on learning, projects, and teamwork.</p>
+
+      <!-- Mission Image -->
+      <img src="https://via.placeholder.com/800x400" alt="Mission Image" class="img-fluid mt-4">
+
+      <!-- Expanded Mission Points -->
+      <div class="row mt-5">
+        <div class="col-md-4">
+          <i class="fas fa-bolt fa-3x"></i>
+          <h4>Innovation</h4>
+          <p>Fostering creativity and innovation in the field of robotics and AI.</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-users fa-3x"></i>
+          <h4>Collaboration</h4>
+          <p>Encouraging teamwork and knowledge-sharing among members.</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-trophy fa-3x"></i>
+          <h4>Excellence</h4>
+          <p>Participating in competitions and striving for excellence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do Section -->
+  <section class="features-section py-5">
+    <div class="container">
+      <h2 class="text-center">What We Do</h2>
+
+      <!-- More Content and Video Embed -->
+      <div class="row text-center">
+        <div class="col-md-4">
+          <i class="fas fa-robot fa-3x"></i>
+          <h3>Workshops</h3>
+          <p>We organize interactive workshops on robotics, AI, programming, and more.</p>
+          <!-- Embed video -->
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/fChQTJe8LMI" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-project-diagram fa-3x"></i>
+          <h3>Projects</h3>
+          <p>Our members collaborate on innovative robotics projects, from simple bots to complex automation systems.</p>
+          <img src="https://via.placeholder.com/400x250" class="img-fluid mt-3" alt="Project Image">
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-trophy fa-3x"></i>
+          <h3>Competitions</h3>
+          <p>We participate in national and international robotics competitions to showcase our skills and creativity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section class="projects-section py-5 bg-dark">
+    <div class="container">
+      <h2 class="text-center">Featured Projects</h2>
+      <p class="text-center">Check out some of our amazing projects, built with passion and innovation.</p>
+
+      <!-- Project Video -->
+      <div class="embed-responsive embed-responsive-16by9 mb-4">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tdmfOd8Db2I" allowfullscreen></iframe>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Project 1">
+            <div class="card-body">
+              <h5 class="card-title">Quadcopter with Camera</h5>
+              <p class="card-text">A quadcopter drone project featuring live camera streaming for surveillance.</p>
+              <a href="/projects" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Project 2">
+            <div class="card-body">
+              <h5 class="card-title">Soil Moisture Sensor</h5>
+              <p class="card-text">An automated soil moisture detection system for smart irrigation.</p>
+              <a href="/projects" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Project 3">
+            <div class="card-body">
+              <h5 class="card-title">Gesture-Controlled Bot</h5>
+              <p class="card-text">A robot controlled by hand gestures using sensors and wireless communication.</p>
+              <a href="/projects" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Us Section -->
+  <section class="join-us-section py-5 text-center">
+    <div class="container">
+      <h2>Join the Robotics Club</h2>
+      <p>Become part of a creative and innovative community. Sign up for upcoming events, workshops, and projects to take your skills to the next level.</p>
+
+      <!-- Testimonial Quote -->
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">"The Robotics Club helped me build skills that I never thought I could learn. It's more than just a club, it's a family!"</p>
+        <footer class="blockquote-footer">John Doe, Club Member</footer>
+      </blockquote>
+
+      <a href="/contact" class="btn btn-success">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark text-white py-4">
+    <div class="container text-center">
+      <p>&copy; 2024 Robotics Club, All Rights Reserved</p>
+      <div class="social-icons">
+        <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- For icons -->
 </body>
 </html>
