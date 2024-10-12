@@ -3,6 +3,11 @@ const db = require('../firebase'); // Your Firebase setup
 
 // Middleware to check if user is authenticated
 const isAuthenticated = (req, res, next) => {
+  // Check if the request is for /projects with guest=true
+  if (req.path === '/projects' && req.query.guest === 'true') {
+    return next(); // Allow guest users to view completed projects
+  }
+
   if (req.session.user) {
     next();
   } else {
@@ -12,8 +17,12 @@ const isAuthenticated = (req, res, next) => {
   }
 };
 
-// Render login page
-const loginPage = (req, res) => res.render('login', { currentPage: 'login', user: req.session.user, error: null });
+// Render login page with a guest option for the projects page
+const loginPage = (req, res) => {
+  const redirectRoute = req.session.redirectTo || '/projects';
+  const showGuestOption = redirectRoute === '/projects'; // Only show guest option for projects page
+  res.render('login', { currentPage: 'login', user: req.session.user, error: null, showGuestOption });
+};
 
 // Handle login
 const login = async (req, res) => {
@@ -46,15 +55,15 @@ const login = async (req, res) => {
         res.redirect(redirectTo);
       } else {
         // Invalid login attempt
-        res.render('login', { currentPage: 'login', user: null, error: 'Invalid email or password' });
+        res.render('login', { currentPage: 'login', user: null, error: 'Invalid email or password', showGuestOption: true });
       }
     } else {
       // No users exist
-      res.render('login', { currentPage: 'login', user: null, error: 'No users found' });
+      res.render('login', { currentPage: 'login', user: null, error: 'No users found', showGuestOption: true });
     }
   } catch (error) {
     console.error('Error during login:', error);
-    res.render('login', { currentPage: 'login', user: null, error: 'An error occurred, please try again later' });
+    res.render('login', { currentPage: 'login', user: null, error: 'An error occurred, please try again later', showGuestOption: true });
   }
 };
 

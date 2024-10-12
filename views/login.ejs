@@ -29,6 +29,17 @@
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
+
+    <!-- Show "View as Guest" button if trying to access the projects page -->
+    <% if (showGuestOption) { %>
+      <div class="text-center mt-3">
+        <p class="or-text">or</p>
+        <a href="/projects?guest=true">
+          <button class="btn-guest">View as Guest</button>
+        </a>
+      </div>
+    <% } %>
+
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

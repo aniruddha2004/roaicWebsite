@@ -64,7 +64,7 @@ input[type="password"]:focus {
 }
 
 button[type="submit"] {
-  background-color: #00e676; /* Green button background */
+  background-color: #03d6ba; /* Green button background */
   border: none;
   color: #fff;
   padding: 12px 20px;
@@ -77,11 +77,13 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #00bfa5; /* Darker green on hover */
+  box-shadow: 0 10px 25px #008270;
+  transform: translateY(-5px);
 }
 
 button[type="submit"]:focus {
   outline: none;
-  box-shadow: 0px 0px 5px rgba(0, 230, 118, 0.5);
+  box-shadow: 0px 0px 5px #00695b;
 }
 
 .alert-danger {
@@ -107,6 +109,39 @@ button[type="submit"]:focus {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Styling for the "or" text */
+.or-text {
+  color: #ccc; /* Lighter text */
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+/* Styling for the "View as Guest" button */
+button.btn-guest {
+  background-color: #ff5722; /* Orange button background */
+  border: none;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+button.btn-guest:hover {
+  background-color: #e64a19; /* Darker orange on hover */
+  box-shadow: 0 10px 25px rgba(244, 67, 54, 0.7);
+  transform: translateY(-5px);
+}
+
+button.btn-guest:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(255, 87, 34, 0.5);
+}
+
+
 @media (max-width: 768px) {
   .container {
     margin-top: 3rem;
@@ -120,4 +155,16 @@ button[type="submit"]:focus {
   button[type="submit"] {
     font-size: 1.1rem;
   }
+
+  /* Adjusting the font size for the "or" text */
+  .or-text {
+    font-size: 1rem; /* Slightly smaller font size for mobile */
+  }
+
+  /* Adjusting the guest button for smaller screens */
+  button.btn-guest {
+    font-size: 1.1rem; /* Same as the login button for mobile */
+    padding: 10px 18px;
+  }
 }
+
