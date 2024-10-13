@@ -26,12 +26,23 @@
             <strong>Name:</strong> <%= members[key].name %> <br>
             <strong>Email:</strong> <%= members[key].email %> <br>
             <strong>Role:</strong> <%= members[key].role %>
+            <% if (user && user.admin) { %>
+              <a href="/members/edit/<%= key %>" class="btn btn-warning mt-2 float-right">Edit Member</a>
+              <a href="/members/delete/<%= key %>" class="btn btn-danger mt-2 float-right mr-2">Delete Member</a>
+            <% } %>
           </li>
         <% } %>
       </ul>
     <% } else { %>
       <p>No members available at the moment. Please check back later!</p>
     <% } %>
+
+    <% if (user && user.admin) { %>
+      <div class="text-center mt-4">
+        <a href="/members/add" class="btn btn-primary">Add Member</a>
+      </div>
+    <% } %>
+
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

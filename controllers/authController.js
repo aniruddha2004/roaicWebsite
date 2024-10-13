@@ -47,7 +47,7 @@ const login = async (req, res) => {
 
       if (validUser) {
         // If the user is found, start a session
-        req.session.user = { email: validUser.email };
+        req.session.user = { email: validUser.email, admin: validUser.admin};
 
         // Redirect to the page the user originally wanted to access
         const redirectTo = req.session.redirectTo || '/projects'; // Default to /projects if no route is stored

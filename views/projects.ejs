@@ -38,6 +38,10 @@
                     <span class="ongoing-badge">Ongoing</span>
                   <% } %>
                 </div>
+                <% if (user && user.admin) { %>
+                  <a href="/projects/edit/<%= key %>" class="btn btn-warning mt-2">Edit Project</a>
+                  <a href="/projects/delete/<%= key %>" class="btn btn-danger mt-2">Delete Project</a>
+                <% } %>
               </div>
             </div>
           </div>
@@ -46,6 +50,13 @@
     <% } else { %>
       <p>No projects available at the moment. Please check back later!</p>
     <% } %>
+
+    <% if (user && user.admin) { %>
+      <div class="text-center mt-4">
+        <a href="/projects/add" class="btn btn-primary">Add Project</a>
+      </div>
+    <% } %>
+
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

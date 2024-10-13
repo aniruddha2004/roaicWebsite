@@ -51,7 +51,7 @@ body {
 }
 
 .card-img-top {
-  height: 250px;
+  height: 350px;
   object-fit: cover;
   filter: brightness(80%); /* Add slight dim effect on images for consistency */
 }
