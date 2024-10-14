@@ -1,5 +1,6 @@
 const db = require('../firebase');
 const { ref, get, child, push, set, update, remove } = require('firebase/database');
+const bcrypt = require('bcrypt');
 
 // Function to handle /projects route
 const getProjects = async (req, res) => {
@@ -98,10 +99,13 @@ const saveMember = async (req, res) => {
     const dbRef = ref(db, 'Users');
     const newMemberRef = push(dbRef); // Automatically generate a unique key for the new user
 
+    // Hash the password before saving
+    const hashedPassword = await bcrypt.hash(password, 10); // 10 is the salt rounds
+
     await set(newMemberRef, {
       email,
       name,
-      password,  // Store the password in the database
+      password: hashedPassword,  // Store the hashed password
       role,
       program,
       start,
@@ -181,7 +185,7 @@ const editMemberForm = async (req, res) => {
 // Function to handle updating a member (now updating with password in /Users)
 const updateMember = async (req, res) => {
   const { memberId } = req.params;
-  const { name, email, password, role, program, start, end } = req.body;
+  const { name, email, role, program, start, end } = req.body;
 
   // Handle admin checkbox
   const isAdmin = req.body.admin ? true : false; // If admin checkbox is present, set to true, otherwise false
@@ -193,7 +197,6 @@ const updateMember = async (req, res) => {
       await update(memberRef, {
         name,
         email,
-        password,  // Update password as well
         role,
         program,
         start,

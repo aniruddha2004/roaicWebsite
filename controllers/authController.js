@@ -1,5 +1,6 @@
 const { ref, get, child } = require('firebase/database');
 const db = require('../firebase'); // Your Firebase setup
+const bcrypt = require('bcrypt');
 
 // Middleware to check if user is authenticated
 const isAuthenticated = (req, res, next) => {
@@ -39,22 +40,30 @@ const login = async (req, res) => {
 
       // Loop through all users to find the one with the matching email
       for (const key in users) {
-        if (users[key].email === email && users[key].password === password) {
+        if (users[key].email === email) {
           validUser = users[key];
           break;
         }
       }
 
       if (validUser) {
-        // If the user is found, start a session
-        req.session.user = { email: validUser.email, admin: validUser.admin};
+        // Compare the entered password with the hashed password
+        const passwordMatch = await bcrypt.compare(password, validUser.password);
 
-        // Redirect to the page the user originally wanted to access
-        const redirectTo = req.session.redirectTo || '/projects'; // Default to /projects if no route is stored
-        delete req.session.redirectTo; // Clear it from the session
-        res.redirect(redirectTo);
+        if (passwordMatch) {
+          // If the password matches, start a session
+          req.session.user = { email: validUser.email, admin: validUser.admin };
+
+          // Redirect to the page the user originally wanted to access
+          const redirectTo = req.session.redirectTo || '/projects'; // Default to /projects if no route is stored
+          delete req.session.redirectTo; // Clear it from the session
+          res.redirect(redirectTo);
+        } else {
+          // Password mismatch
+          res.render('login', { currentPage: 'login', user: null, error: 'Invalid email or password', showGuestOption: true });
+        }
       } else {
-        // Invalid login attempt
+        // Invalid email
         res.render('login', { currentPage: 'login', user: null, error: 'Invalid email or password', showGuestOption: true });
       }
     } else {
