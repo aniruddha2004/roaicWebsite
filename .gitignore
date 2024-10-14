@@ -3,3 +3,4 @@ node_modules/
 
 # Environment variables file
 .env
+getPassword.js
