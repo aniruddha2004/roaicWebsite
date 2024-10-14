@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Member</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <div class="container mt-5">
@@ -20,7 +21,14 @@
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password" required>
+        <div class="input-group">
+          <input type="password" class="form-control" id="password" name="password" required>
+          <div class="input-group-append">
+            <span class="input-group-text" onclick="togglePassword()">
+              <i class="fa-solid fa-eye" id="togglePasswordIcon"></i>
+            </span>
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="role">Role</label>
@@ -53,5 +61,7 @@
       <button type="submit" class="btn btn-success">Add Member</button>
     </form>
   </div>
+
+  <script src="/js/addMember.js"></script>
 </body>
 </html>

@@ -9,6 +9,7 @@ const {
   editMemberForm, updateMember, 
   deleteProject, deleteMember 
 } = require('../controllers/clubController');
+const {mailSender} = require('../controllers/mailController')
 
 // Home route
 router.get('/', (req, res) => {
@@ -22,8 +23,9 @@ router.get('/about', (req, res) => {
 
 // Contact route
 router.get('/contact', (req, res) => {
-  res.render('contact', { currentPage: 'contact', user: req.session.user });
+  res.render('contact', { currentPage: 'contact', user: req.session.user, message: '' });
 });
+router.post('/contact', mailSender);
 
 // Projects and Members Routes
 router.get('/projects', isAuthenticated, getProjects);
