@@ -33,7 +33,7 @@ const getProjects = async (req, res) => {
 const getMembers = async (req, res) => {
   try {
     const dbRef = ref(db);
-    const snapshot = await get(child(dbRef, `Members`));
+    const snapshot = await get(child(dbRef, `Users`));
 
     if (snapshot.exists()) {
       const members = snapshot.val();
@@ -87,18 +87,26 @@ const saveProject = async (req, res) => {
   }
 };
 
-// Function to handle adding a member
+// Function to handle adding a member (now storing in /Users with password)
 const saveMember = async (req, res) => {
-  const { email, name, role } = req.body;
+  const { email, name, password, role, program, start, end } = req.body;
+
+  // Handle admin checkbox
+  const isAdmin = req.body.admin ? true : false; // If admin checkbox is present, set to true, otherwise false
 
   if (req.session.user && req.session.user.admin) {
-    const dbRef = ref(db, 'Members');
-    const newMemberRef = push(dbRef); // Automatically generate a unique key for the new member
+    const dbRef = ref(db, 'Users');
+    const newMemberRef = push(dbRef); // Automatically generate a unique key for the new user
 
     await set(newMemberRef, {
       email,
       name,
+      password,  // Store the password in the database
       role,
+      program,
+      start,
+      end,
+      admin: isAdmin  // Defaulting new users as non-admins
     });
 
     res.redirect('/members');
@@ -151,13 +159,13 @@ const updateProject = async (req, res) => {
   }
 };
 
-// Function to display the "Edit Member" form
+// Function to display the "Edit Member" form (now pointing to /Users)
 const editMemberForm = async (req, res) => {
   const { memberId } = req.params;
   const dbRef = ref(db);
 
   try {
-    const snapshot = await get(child(dbRef, `Members/${memberId}`));
+    const snapshot = await get(child(dbRef, `Users/${memberId}`));
 
     if (snapshot.exists()) {
       const member = snapshot.val();
@@ -170,19 +178,27 @@ const editMemberForm = async (req, res) => {
   }
 };
 
-// Function to handle updating a member
+// Function to handle updating a member (now updating with password in /Users)
 const updateMember = async (req, res) => {
   const { memberId } = req.params;
-  const { name, email, role } = req.body;
+  const { name, email, password, role, program, start, end } = req.body;
+
+  // Handle admin checkbox
+  const isAdmin = req.body.admin ? true : false; // If admin checkbox is present, set to true, otherwise false
 
   if (req.session.user && req.session.user.admin) {
-    const memberRef = ref(db, `Members/${memberId}`);
+    const memberRef = ref(db, `Users/${memberId}`);
 
     try {
       await update(memberRef, {
         name,
         email,
-        role
+        password,  // Update password as well
+        role,
+        program,
+        start,
+        end,
+        admin: isAdmin,
       });
 
       res.redirect('/members');
@@ -212,12 +228,12 @@ const deleteProject = async (req, res) => {
   }
 };
 
-// Function to delete a member
+// Function to delete a member (now deleting from /Users)
 const deleteMember = async (req, res) => {
   const { memberId } = req.params;
 
   if (req.session.user && req.session.user.admin) {
-    const memberRef = ref(db, `Members/${memberId}`);
+    const memberRef = ref(db, `Users/${memberId}`);
 
     try {
       await remove(memberRef);

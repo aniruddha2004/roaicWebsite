@@ -15,6 +15,16 @@ router.get('/', (req, res) => {
   res.render('home', { currentPage: 'home', user: req.session.user });
 });
 
+// About route
+router.get('/about', (req, res) => {
+  res.render('about', { currentPage: 'about', user: req.session.user });
+});
+
+// Contact route
+router.get('/contact', (req, res) => {
+  res.render('contact', { currentPage: 'contact', user: req.session.user });
+});
+
 // Projects and Members Routes
 router.get('/projects', isAuthenticated, getProjects);
 router.get('/members', isAuthenticated, getMembers);
